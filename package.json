@@ -1,0 +1,58 @@
+{
+  "name": "aicodeanalyser",
+  "displayName": "AICodeAnalyser",
+  "publisher": "AICodeAnalyser",
+  "description": "AiCodeAnalyser analyses your code, review it and describe its operations.",
+  "version": "1.0.2",
+  "engines": {
+    "vscode": "^1.87.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "code-analyse-gpt.addSummarise",
+        "title": "AiCodeAnalyser - Summarise the Code"
+      },
+      {
+        "command": "code-analyse-gpt.addComments",
+        "title": "AiCodeAnalyser - Add Comments"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "code-analyse-gpt.addSummarise",
+          "group": "navigation",
+          "when": "editorHasSelection"
+        },
+        {
+          "command": "code-analyse-gpt.addComments",
+          "group": "navigation",
+          "when": "editorHasSelection"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.6",
+    "@types/node": "18.x",
+    "@types/vscode": "^1.87.0",
+    "@vscode/test-cli": "^0.0.8",
+    "@vscode/test-electron": "^2.3.9",
+    "eslint": "^8.57.0",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.3.1"
+  }
+}
